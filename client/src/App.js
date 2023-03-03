@@ -33,6 +33,53 @@ const theme = createTheme({
           padding: 0
         }
       }
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          paddingLeft: 0,
+          paddingRight: 0
+        }
+      }
+    },
+    MuiToggleButton: {
+      defaultProps: {
+        color: "primary"
+      }
+    },
+    MuiToggleButtonGroup: {
+      defaultProps: {
+        exclusive: true,
+        fullWidth: true,
+        size: "small",
+        color: "primary"
+      }
+    },
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          paddingBottom: 0
+        }
+      }
+    },
+    MuiCheckbox: {
+      defaultProps: {
+        size: "small"
+      },
+      styleOverrides: {
+        root: {
+          marginRight: -5,
+          marginBottom: -5,
+          marginTop: -5
+        }
+      }
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: 11
+        }
+      }
     }
   }
 });
