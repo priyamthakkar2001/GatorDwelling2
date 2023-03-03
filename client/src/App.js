@@ -18,6 +18,10 @@ const theme = createTheme({
         dark: "#424242",
         main: "#9e9e9e",
         light: "#e0e0e0"
+    },
+    white: {
+      main: "#FFFFFF",
+      light: "#E0E1E4"
     }
   },
   typography: {
