@@ -12,7 +12,7 @@ import Rating from "../components/rating";
 
 export default function Details() {
 
-    const [dwelling, loading] = useService();
+    const [dwelling, scores, reviews, loading] = useService();
     const [sortby, setSortby] = useState("Newest First");
     const [score, setScore] = useState("All Ratings");
 
@@ -60,7 +60,7 @@ export default function Details() {
                                     />
                                 </FormControl>
                             </Box>
-                            <Rating />
+                            <Rating scores={scores}/>
                         </Grid>
                         <Grid item xs={4}>
                             <Contact id={dwelling.id} phone={dwelling.phone} website={dwelling.website} hours={dwelling.hours}/>
