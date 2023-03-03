@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import useService from '../services/detailService';
-import {Box, Toolbar, Grid, Typography, OutlinedInput, InputAdornment, Button, FormControl, InputLabel, Select, MenuItem,} from '@mui/material';
+import {Box, Toolbar, Grid, Typography, OutlinedInput, InputAdornment, Button, FormControl,
+    Paper, InputLabel, Select, MenuItem,} from '@mui/material';
 import '../css/style.css';
 import Header from "../components/header";
 import Loading from '../components/loading';
 import WriteIcon from '@mui/icons-material/EditRounded';
 import SearchIcon from '@mui/icons-material/SearchRounded';
+import Contact from "../components/contact";
 
 export default function Details() {
 
@@ -19,10 +21,10 @@ export default function Details() {
             {loading ? <Loading /> :
                 <>
                     <Header dwelling={dwelling}/>
-                    <Grid container sx={{paddingLeft: 15, paddingRight: 15, paddingTop: 3}}>
+                    <Grid container spacing={3} sx={{paddingLeft: 15, paddingRight: 15, paddingTop: 3}}>
                         <Grid item xs={8}>
                             <Box sx={{display: "flex", gap: 1, alignItems: "center"}}>
-                                <Button size="large" sx={{color: "white.main", height: 52}} variant="contained" startIcon={<WriteIcon />}>
+                                <Button size="large" sx={{color: "white.main", height: 52, fontSize: 13}} variant="contained" startIcon={<WriteIcon />}>
                                     Write a Review
                                 </Button>
                                 <FormControl>
@@ -59,7 +61,7 @@ export default function Details() {
                             </Box>
                         </Grid>
                         <Grid item xs={4}>
-                            
+                            <Contact id={dwelling.id} phone={dwelling.phone} website={dwelling.website} hours={dwelling.hours}/>
                         </Grid>
                     </Grid>
                 </>

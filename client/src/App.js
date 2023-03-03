@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Home from './pages/home';
 import Details from './pages/details';
+import Book from './pages/book';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -101,6 +102,7 @@ const App = () => {
      <Routes>
        <Route exact path="/" element={<Home />} />
        <Route path="/details/:id" element={<Details />} />
+       <Route path="/book/:id" element={<Book/>} />
      </Routes>
    </ThemeProvider>
  );
