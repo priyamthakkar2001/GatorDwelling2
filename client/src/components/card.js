@@ -25,7 +25,7 @@ export default function DwellingCard({ dwelling }) {
                     <Typography color="secondary" fontSize={10}>(19)</Typography>
                 </Box>
             </Box>
-            <Box sx={{display: "flex", alignItems: "center", gap: 1, marginTop: "3px", marginBottom: "3px"}}>
+            <Box sx={{display: "flex", alignItems: "center", gap: "6px", marginTop: "3px", marginBottom: "3px"}}>
                 <Box sx={{display: "flex", alignItems: "center", gap: "2px"}}>
                     <BedIcon color="secondary" fontSize="small" sx={{height: "18px"}}/>
                     <Typography fontSize={11} color="secondary.dark">{`${dwelling.size.minBed}-${dwelling.size.maxBed} bed`}</Typography>
