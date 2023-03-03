@@ -25,6 +25,15 @@ const theme = createTheme({
     button: {
         textTransform: 'none'
     }
+  },
+  components: {
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          padding: 0
+        }
+      }
+    }
   }
 });
  
