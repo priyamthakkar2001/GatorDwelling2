@@ -21,4 +21,13 @@ router.route("/reviews/:id").get(async function (req, res) {
     }
 });
 
+router.route("/dwellings/:id").get(async function (req, res) {
+    try {
+        const data = await dbo.getDb().collection("dwellings").findOne({id: parseInt(req.params.id)});
+        res.status(200).send(data);
+    } catch {
+        res.status(400).type('json').send(err);
+    }
+});
+
 module.exports = router;

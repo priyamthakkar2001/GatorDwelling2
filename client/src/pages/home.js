@@ -4,7 +4,7 @@ import MuiBox from '@mui/material/Box';
 import {styled} from '@mui/material/styles';
 import Filter from "../components/filter";
 import DwellingCard from "../components/card";
-import useService from '../service';
+import useService from '../services/homeService';
 import Loading from '../components/loading';
 
 const Main = styled((props) => (

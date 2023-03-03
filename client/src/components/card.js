@@ -5,6 +5,7 @@ import {styled} from '@mui/material/styles';
 import BedIcon from '@mui/icons-material/KingBedRounded';
 import BathIcon from '@mui/icons-material/BathtubRounded';
 import PetsIcon from '@mui/icons-material/PetsRounded';
+import { useNavigate } from "react-router-dom";
 
 const StyledRating = styled((props) => (
 	<Rating size="small" readOnly {...props} />
@@ -15,9 +16,14 @@ const StyledRating = styled((props) => (
   }));
 
 export default function DwellingCard({ dwelling }) {
+
+    const navigate = useNavigate();
+
     return (
         <Box>
-            <img src={dwelling.image} width="100%" height={125} style={{borderRadius: 7}}/>
+            <img src={dwelling.image} width="100%" height={125} style={{borderRadius: 7}}
+                onClick={() => navigate(`/details/${dwelling.id}`)}
+            />
             <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                 <Typography fontSize={14} sx={{marginTop: "2px"}}>{dwelling.name}</Typography>
                 <Box sx={{display: "flex", alignItems: "center"}}>
@@ -51,6 +57,7 @@ export default function DwellingCard({ dwelling }) {
 
 DwellingCard.propTypes = {
     dwelling: shape({
+        id: number,
         name: string,
         size: shape({
             minBed: number,
