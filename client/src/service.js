@@ -8,7 +8,6 @@ export default () => {
     const fetchDwellings = async () => {
         const res = await fetch('http://localhost:5000/dwellings');
         const data = await res.json();
-        console.log(data);
         setDwellings(data);
         setLoading(false);
     };

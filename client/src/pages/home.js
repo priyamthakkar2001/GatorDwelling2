@@ -5,6 +5,7 @@ import {styled} from '@mui/material/styles';
 import Filter from "../components/filter";
 import DwellingCard from "../components/card";
 import useService from '../service';
+import Loading from '../components/loading';
 
 const Main = styled((props) => (
 	<MuiBox component="main" {...props} />
@@ -20,10 +21,13 @@ export default function Home() {
         <>
             <Filter />
             <Main>
+                {loading ? <Loading/> :
                 <Grid container>
                     <Grid item xs={12}><Toolbar/></Grid>
-                    <Grid item xs={6} spacing={2} sx={{padding: 2}}>
-                        <DwellingCard/>
+                    <Grid item xs={6} sx={{padding: 2}}>
+                        <Grid container spacing={3}>
+                            {dwellings.map(d => <Grid item xs={6}><DwellingCard dwelling={d}/></Grid>)}
+                        </Grid>
                     </Grid>
                     <Grid item xs={6}>
                         <div style={{backgroundColor: "blue", width: "100%", height: "100%"}}>
@@ -31,6 +35,7 @@ export default function Home() {
                         </div>
                     </Grid>
                 </Grid>
+                }
             </Main>
         </>
     )
