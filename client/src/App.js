@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+ 
+// We use Route in order to define the different routes of our application
+import { Route, Routes } from "react-router-dom";
+ 
+// We import all the components we need in our app
+import Navbar from "./components/navbar";
+import Home from './pages/home';
+import Details from './pages/details';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#85B934"
+    },
+    secondary: {
+        dark: "#424242",
+        main: "#9e9e9e",
+        light: "#e0e0e0"
+    }
+  },
+  typography: {
+    fontSize: 12,
+    button: {
+        textTransform: 'none'
+    }
+  }
+});
+ 
+const App = () => {
+ return (
+   <ThemeProvider theme={theme}>
+     <style jsx global>{`
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    `}</style>
+     <Navbar />
+     <Routes>
+       <Route exact path="/" element={<Home />} />
+       <Route path="/details/:id" element={<Details />} />
+     </Routes>
+   </ThemeProvider>
+ );
+};
+ 
 export default App;
