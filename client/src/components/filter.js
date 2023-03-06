@@ -8,9 +8,9 @@ import MinusIcon from '@mui/icons-material/RemoveRounded';
 import HouseIcon from '@mui/icons-material/HouseTwoTone';
 import TownhomeIcon from '@mui/icons-material/HolidayVillageTwoTone';
 import ApartmentIcon from '@mui/icons-material/ApartmentTwoTone';
-
 import {styled} from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
+import { func, shape, string, number, bool , arrayOf} from 'prop-types';
 
 const drawerWidth = 284;
 
@@ -35,7 +35,7 @@ const StyledRating = styled(Rating) (({ theme }) => ({
 	  }
   }));
 
-export default function Filter() {
+export default function Filter({dwellings, setDwellings}) {
 
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
@@ -69,6 +69,11 @@ export default function Filter() {
 	const [busFrequency, setBusFrequency] = useState(15);
 	const [pets, setPets] = useState(false);
 	const [rating, setRating] = useState(0);
+
+	const filterOutdoor = () => {
+		const filtered = dwellings.filter(d => d.amenities.outdoorSpace === true);
+		setDwellings(filtered);
+	}
 
   	return (
       	<Drawer
@@ -256,7 +261,7 @@ export default function Filter() {
 							<Grid item xs={6}>
 								<FormControlLabel control={<Checkbox />} label="Gym"/>
 								<FormControlLabel control={<Checkbox />} label="Clubhouse"/>
-								<FormControlLabel control={<Checkbox />} label="Outdoor Space"/>
+								<FormControlLabel control={<Checkbox onChange={() => filterOutdoor()}/>} label="Outdoor Space"/>
 								<FormControlLabel control={<Checkbox />} label="Activities"/>
 							</Grid>
 						</Grid>
@@ -357,4 +362,43 @@ export default function Filter() {
 		</Box>
       </Drawer>
   );
+}
+
+Filter.propTypes = {
+    dwellings: arrayOf(shape({
+        id: number,
+        name: string,
+		image: string,
+		rentalType: string,
+		location: shape({
+			distanceToCampus: number,
+			distanceToBus: number,
+			frequencyOfBuses: number,
+			neighborhood: string
+		}),
+        size: shape({
+            minBed: number,
+            maxBed: number,
+            minBath: number,
+            maxBath: number,
+            minSqft: number,
+            maxSqft: number
+        }),
+        pets: bool,
+        description: string,
+        price: shape({
+            minPrice: number,
+            maxPrice: number,
+            parkingPrice: number,
+            utilitiesPrice: number
+        }),
+        address: string,
+		features: shape({
+			washerDryer: bool
+		}),
+		amenities: shape({
+			outdoorSpace: bool
+		})
+    })),
+	setDwellings: func
 }

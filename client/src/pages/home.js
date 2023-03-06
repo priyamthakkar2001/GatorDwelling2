@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {FormControl, InputLabel, Select, MenuItem, Grid, Toolbar, Box} from '@mui/material';
+import {FormControl, InputLabel, Select, MenuItem, Grid, Toolbar, Box, Typography} from '@mui/material';
 import MuiBox from '@mui/material/Box';
 import {styled} from '@mui/material/styles';
 import Filter from "../components/filter";
@@ -15,12 +15,12 @@ const Main = styled((props) => (
 
 export default function Home() {
 
-    const [dwellings, loading] = useService();
+    const [dwellings, loading, setDwellings, recovery] = useService();
     const [sortby, setSortby] = useState("Reviews");
 
     return (
         <>
-            <Filter />
+            <Filter dwellings={dwellings} setDwellings={setDwellings}/>
             <Main>
                 {loading ? <Loading/> :
                 <Grid container>
@@ -43,7 +43,11 @@ export default function Home() {
                                 </FormControl>
                             </Box>
                         </Grid>
-                            {dwellings.map(d => <Grid item xs={6}><DwellingCard dwelling={d}/></Grid>)}
+                            {dwellings.length > 0 ?
+                            dwellings.map(d => <Grid item xs={6}><DwellingCard dwelling={d}/></Grid>)
+                            : <Typography variant="h5" sx={{minHeight: 445, marginLeft: 10, marginTop: 5}}>
+                                No results that match your search
+                                </Typography>}
                         </Grid>
                     </Grid>
                     <Grid item xs={6}>

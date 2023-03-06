@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default () => {
   const [dwellings, setDwellings] = useState([]);
+  const [recovery, setRecovery] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -9,6 +10,7 @@ export default () => {
         const res = await fetch('http://localhost:5000/dwellings');
         const data = await res.json();
         setDwellings(data);
+        setRecovery(data);
         setLoading(false);
     };
 
@@ -17,5 +19,5 @@ export default () => {
     }
   }, []);
 
-  return [dwellings, loading];
+  return [dwellings, loading, setDwellings, recovery];
 };
