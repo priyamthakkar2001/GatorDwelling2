@@ -28,7 +28,7 @@ export default function Rating({ scores }) {
                 <Box sx={{display: "flex", alignItems: "center", marginBottom: 5, justifyContent: "space-between"}}>
                     <Typography variant="h6">Overall</Typography>
                     <Box sx={{display: "flex", alignItems: "center"}}>
-                      <Tube value={50}/>
+                      <Tube value={scores.overall * 20}/>
                       <Typography variant="body2" color="secondary">{scores.overall.toFixed(1)}</Typography>
                     </Box>
                 </Box>
@@ -36,35 +36,35 @@ export default function Rating({ scores }) {
                 <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                     <Typography variant="subtitle1">Cleanliness</Typography>
                     <Box sx={{display: "flex", alignItems: "center"}}>
-                      <Tube value={50}/>
+                      <Tube value={scores.cleanliness * 20}/>
                       <Typography variant="body2" color="secondary">{scores.cleanliness.toFixed(1)}</Typography>
                     </Box>
                 </Box>
                 <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                     <Typography variant="subtitle1">Value</Typography>
                     <Box sx={{display: "flex", alignItems: "center"}}>
-                      <Tube value={50}/>
+                      <Tube value={scores.value * 20}/>
                       <Typography variant="body2" color="secondary">{scores.value.toFixed(1)}</Typography>
                     </Box>
                 </Box>
                 <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                     <Typography variant="subtitle1">Location</Typography>
                     <Box sx={{display: "flex", alignItems: "center"}}>
-                      <Tube value={50}/>
+                      <Tube value={scores.location * 20}/>
                       <Typography variant="body2" color="secondary">{scores.location.toFixed(1)}</Typography>
                     </Box>
                 </Box>
                 <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                     <Typography variant="subtitle1">Management</Typography>
                     <Box sx={{display: "flex", alignItems: "center"}}>
-                      <Tube value={50}/>
+                      <Tube value={scores.management * 20}/>
                       <Typography variant="body2" color="secondary">{scores.management.toFixed(1)}</Typography>
                     </Box>
                 </Box>
                 <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                     <Typography variant="subtitle1">Noise</Typography>
                     <Box sx={{display: "flex", alignItems: "center"}}>
-                      <Tube value={50}/>
+                      <Tube value={scores.noise * 20}/>
                       <Typography variant="body2" color="secondary">{scores.noise.toFixed(1)}</Typography>
                     </Box>
                 </Box>
@@ -74,35 +74,35 @@ export default function Rating({ scores }) {
               <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                   <Typography variant="subtitle1">Parking</Typography>
                   <Box sx={{display: "flex", alignItems: "center"}}>
-                    <Tube value={50}/>
+                    <Tube value={scores.parking * 20}/>
                     <Typography variant="body2" color="secondary">{scores.parking.toFixed(1)}</Typography>
                   </Box>
               </Box>
               <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                   <Typography variant="subtitle1">Bus Routes</Typography>
                   <Box sx={{display: "flex", alignItems: "center"}}>
-                    <Tube value={50}/>
+                    <Tube value={scores.busRoutes * 20}/>
                     <Typography variant="body2" color="secondary">{scores.busRoutes.toFixed(1)}</Typography>
                   </Box>
               </Box>
               <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                   <Typography variant="subtitle1">Safety</Typography>
                   <Box sx={{display: "flex", alignItems: "center"}}>
-                    <Tube value={50}/>
+                    <Tube value={scores.safety * 20}/>
                     <Typography variant="body2" color="secondary">{scores.safety.toFixed(1)}</Typography>
                   </Box>
               </Box>
               <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                   <Typography variant="subtitle1">Water Pressure</Typography>
                   <Box sx={{display: "flex", alignItems: "center"}}>
-                    <Tube value={50}/>
+                    <Tube value={scores.waterPressure * 20}/>
                     <Typography variant="body2" color="secondary">{scores.waterPressure.toFixed(1)}</Typography>
                   </Box>
               </Box>
               <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                   <Typography variant="subtitle1">Internet</Typography>
                   <Box sx={{display: "flex", alignItems: "center"}}>
-                    <Tube value={50}/>
+                    <Tube value={scores.internet * 20}/>
                     <Typography variant="body2" color="secondary">{scores.internet.toFixed(1)}</Typography>
                   </Box>
               </Box>
