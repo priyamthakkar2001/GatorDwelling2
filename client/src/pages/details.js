@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useService from '../services/detailService';
 import {Box, Toolbar, Grid, Typography, OutlinedInput, InputAdornment, Button, FormControl,
-    Paper, InputLabel, Select, MenuItem,} from '@mui/material';
+    Paper, InputLabel, Select, MenuItem, Divider} from '@mui/material';
 import '../css/style.css';
 import Header from "../components/header";
 import Loading from '../components/loading';
@@ -23,7 +23,7 @@ export default function Details() {
                 <>
                     <Header dwelling={dwelling}/>
                     <Grid container spacing={3} sx={{paddingLeft: 15, paddingRight: 15, paddingTop: 3}}>
-                        <Grid item xs={8}>
+                        <Grid item xs={8} sx={{paddingRight: 5}}>
                             <Box sx={{display: "flex", gap: 1, alignItems: "center", marginBottom: 3}}>
                                 <Button size="large" sx={{color: "white.main", height: 52, fontSize: 13}} variant="contained" startIcon={<WriteIcon />}>
                                     Write a Review
@@ -61,6 +61,7 @@ export default function Details() {
                                 </FormControl>
                             </Box>
                             <Rating scores={scores}/>
+                            <Divider/>
                         </Grid>
                         <Grid item xs={4}>
                             <Contact id={dwelling.id} phone={dwelling.phone} website={dwelling.website} hours={dwelling.hours}/>

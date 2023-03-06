@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import {styled} from '@mui/material/styles';
-import { Grid, Box,Typography } from "@mui/material";
+import { Grid, Box,Typography, Divider } from "@mui/material";
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import {shape, string, number, arrayOf} from 'prop-types';
 
 const Tube = styled((props) => (
     <LinearProgress variant="determinate" {...props} />
   ))(({ theme }) => ({
-    height: 8,
-    width: "100%",
+    height: 6,
+    width: 120,
     borderRadius: 5,
-    marginLeft: 50,
     marginRight: 10,
     [`&.${linearProgressClasses.colorPrimary}`]: {
       backgroundColor: theme.palette.grey[200],
@@ -24,16 +23,89 @@ const Tube = styled((props) => (
 export default function Rating({ scores }) {
 
     return (
-        <Grid container spacing={5}>
+        <Grid container spacing={12} sx={{marginBottom: 5}}>
             <Grid item xs={6}>
-                <Box sx={{display: "flex", alignItems: "center"}}>
+                <Box sx={{display: "flex", alignItems: "center", marginBottom: 5, justifyContent: "space-between"}}>
                     <Typography variant="h6">Overall</Typography>
-                    <Tube value={50}/>
-                    <Typography variant="body2" color="secondary">{scores.overall}</Typography>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
+                      <Tube value={50}/>
+                      <Typography variant="body2" color="secondary">{scores.overall.toFixed(1)}</Typography>
+                    </Box>
+                </Box>
+
+                <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                    <Typography variant="subtitle1">Cleanliness</Typography>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
+                      <Tube value={50}/>
+                      <Typography variant="body2" color="secondary">{scores.cleanliness.toFixed(1)}</Typography>
+                    </Box>
+                </Box>
+                <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                    <Typography variant="subtitle1">Value</Typography>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
+                      <Tube value={50}/>
+                      <Typography variant="body2" color="secondary">{scores.value.toFixed(1)}</Typography>
+                    </Box>
+                </Box>
+                <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                    <Typography variant="subtitle1">Location</Typography>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
+                      <Tube value={50}/>
+                      <Typography variant="body2" color="secondary">{scores.location.toFixed(1)}</Typography>
+                    </Box>
+                </Box>
+                <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                    <Typography variant="subtitle1">Management</Typography>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
+                      <Tube value={50}/>
+                      <Typography variant="body2" color="secondary">{scores.management.toFixed(1)}</Typography>
+                    </Box>
+                </Box>
+                <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                    <Typography variant="subtitle1">Noise</Typography>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
+                      <Tube value={50}/>
+                      <Typography variant="body2" color="secondary">{scores.noise.toFixed(1)}</Typography>
+                    </Box>
                 </Box>
             </Grid>
             <Grid item xs={6}>
-                
+              <Box sx={{height: 67}}/>
+              <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                  <Typography variant="subtitle1">Parking</Typography>
+                  <Box sx={{display: "flex", alignItems: "center"}}>
+                    <Tube value={50}/>
+                    <Typography variant="body2" color="secondary">{scores.parking.toFixed(1)}</Typography>
+                  </Box>
+              </Box>
+              <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                  <Typography variant="subtitle1">Bus Routes</Typography>
+                  <Box sx={{display: "flex", alignItems: "center"}}>
+                    <Tube value={50}/>
+                    <Typography variant="body2" color="secondary">{scores.busRoutes.toFixed(1)}</Typography>
+                  </Box>
+              </Box>
+              <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                  <Typography variant="subtitle1">Safety</Typography>
+                  <Box sx={{display: "flex", alignItems: "center"}}>
+                    <Tube value={50}/>
+                    <Typography variant="body2" color="secondary">{scores.safety.toFixed(1)}</Typography>
+                  </Box>
+              </Box>
+              <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                  <Typography variant="subtitle1">Water Pressure</Typography>
+                  <Box sx={{display: "flex", alignItems: "center"}}>
+                    <Tube value={50}/>
+                    <Typography variant="body2" color="secondary">{scores.waterPressure.toFixed(1)}</Typography>
+                  </Box>
+              </Box>
+              <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                  <Typography variant="subtitle1">Internet</Typography>
+                  <Box sx={{display: "flex", alignItems: "center"}}>
+                    <Tube value={50}/>
+                    <Typography variant="body2" color="secondary">{scores.internet.toFixed(1)}</Typography>
+                  </Box>
+              </Box>
             </Grid>
         </Grid>
     )

@@ -9,6 +9,7 @@ export default () => {
     overall: 0,
     cleanliness: 0,
     value: 0,
+    location: 0,
     management: 0,
     noise: 0,
     parking: 0, 
@@ -30,12 +31,13 @@ export default () => {
     const fetchReviews = async () => {
       const res = await fetch(`http://localhost:5000/reviews/${id}`);
       const data = await res.json();
-      let ov = 0, cl = 0, va = 0, ma = 0, no = 0, pa = 0, bu = 0, sa = 0, wa = 0, itn = 0;
+      let ov = 0, cl = 0, va = 0, lo = 0, ma = 0, no = 0, pa = 0, bu = 0, sa = 0, wa = 0, itn = 0;
       let len = data.length;
       for (let i = 0; i < data.length; i++) {
         ov += data[i].score.overall;
         cl += data[i].score.cleanliness;
         va += data[i].score.value;
+        lo += data[i].score.location;
         ma += data[i].score.management;
         no += data[i].score.noise;
         pa += data[i].score.parking;
@@ -48,6 +50,7 @@ export default () => {
         overall: ov/len,
         cleanliness: cl/len,
         value: va/len,
+        location: lo/len,
         management: ma/len,
         noise: no/len,
         parking: pa/len,
