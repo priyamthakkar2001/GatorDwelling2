@@ -53,7 +53,7 @@ export default function Details() {
                                         <MenuItem value={"High Ratings"}>High Ratings</MenuItem>
                                     </Select>
                                 </FormControl>
-                                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                                <FormControl sx={{ width: 180 }} variant="outlined">
                                     <InputLabel>Search</InputLabel>
                                     <OutlinedInput
                                         label="Search"

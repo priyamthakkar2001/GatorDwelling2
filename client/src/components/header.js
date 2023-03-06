@@ -75,7 +75,7 @@ export default function Header({dwelling}) {
                     <Typography fontSize={14} color="white.main">Share</Typography>
                 </Box>
             </Box>
-            <Box sx={{position: "absolute", top: 280, left: 35, width: 1210, display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+            <Box sx={{position: "absolute", top: 280, left: 35, width: 1195, display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                 <LeftIcon color="white" fontSize="large"/>
                 <RightIcon color="white" fontSize="large"/>
             </Box>
