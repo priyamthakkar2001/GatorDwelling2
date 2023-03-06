@@ -9,6 +9,7 @@ import WriteIcon from '@mui/icons-material/EditRounded';
 import SearchIcon from '@mui/icons-material/SearchRounded';
 import Contact from "../components/contact";
 import Rating from "../components/rating";
+import Review from "../components/review";
 
 export default function Details() {
 
@@ -61,7 +62,8 @@ export default function Details() {
                                 </FormControl>
                             </Box>
                             <Rating scores={scores}/>
-                            <Divider/>
+                            <Divider sx={{marginBottom: 5}}/>
+                            {reviews.map(r => <Review review={r} />)}
                         </Grid>
                         <Grid item xs={4}>
                             <Contact id={dwelling.id} phone={dwelling.phone} website={dwelling.website} hours={dwelling.hours}/>
