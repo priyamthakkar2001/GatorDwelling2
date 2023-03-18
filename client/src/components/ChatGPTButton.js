@@ -56,6 +56,7 @@ const ChatGPTButton = () => {
     }
   };
   
+  
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleSendMessage();
@@ -77,7 +78,7 @@ const ChatGPTButton = () => {
           </div>
           <div className="chat-body">
             {messages.slice().reverse().map((message, index) => (
-              <div key={index} className={`message message-${message.sender}`}>
+              <div key={index} className={`message message-${message.sender} ${message.sender === 'user' ? 'message-user' : 'message-ai'}`}>
                 {message.text}
               </div>
             ))}
