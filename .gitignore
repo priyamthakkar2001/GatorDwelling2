@@ -1,1 +1,4 @@
-server/apikey.txt
+# Security
+*.env
+*.key
+secrets/
